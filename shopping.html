@@ -1,0 +1,310 @@
+쿠팡같은 쇼핑몰 사이트를 html로 만들어줘
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>쇼핑몰 메인</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Pretendard", sans-serif;
+    }
+
+    body {
+      background: #f5f6f7;
+      color: #222;
+    }
+
+    /* 헤더 */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .top-bar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 15px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #e60012;
+    }
+
+    .search-box {
+      flex: 1;
+      display: flex;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #e60012;
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      width: 60px;
+      border: none;
+      background: #e60012;
+      color: white;
+      font-size: 18px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* 배너 */
+    .banner {
+      max-width: 1200px;
+      margin: 20px auto;
+      height: 320px;
+      background: linear-gradient(135deg, #ff4d4f, #ff9f43);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+      color: white;
+    }
+
+    .banner-text h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .banner-text p {
+      font-size: 20px;
+    }
+
+    .banner img {
+      width: 350px;
+    }
+
+    /* 상품 섹션 */
+    .section {
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-name {
+      font-size: 16px;
+      margin-bottom: 10px;
+      height: 45px;
+      overflow: hidden;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e60012;
+    }
+
+    .discount {
+      color: #00a650;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+
+    .rating {
+      margin-top: 8px;
+      color: #f5a623;
+      font-size: 14px;
+    }
+
+    /* 푸터 */
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .banner {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+      }
+
+      .banner img {
+        width: 250px;
+        margin-top: 20px;
+      }
+
+      .banner-text h1 {
+        font-size: 34px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 헤더 -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">SHOPPING</div>
+
+      <div class="search-box">
+        <input type="text" placeholder="상품을 검색해보세요">
+        <button>🔍</button>
+      </div>
+
+      <nav class="menu">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+        <a href="#">장바구니</a>
+        <a href="#">주문조회</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 배너 -->
+  <section class="banner">
+    <div class="banner-text">
+      <h1>오늘의 특가</h1>
+      <p>최대 70% 할인 이벤트 진행 중</p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop" alt="배너">
+  </section>
+
+  <!-- 상품 리스트 -->
+  <section class="section">
+    <div class="section-title">🔥 인기 상품</div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+        <div class="product-info">
+          <div class="product-name">프리미엄 러닝 운동화</div>
+          <div>
+            <span class="price">59,000원</span>
+            <span class="discount">30%</span>
+          </div>
+          <div class="rating">⭐ 4.8 (1,240)</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
+        <div class="product-info">
+          <div class="product-name">무선 블루투스 헤드폰</div>
+          <div>
+            <span class="price">89,000원</span>
+            <span class="discount">18%</span>
+          </div>
+          <div class="rating">⭐ 4.9 (892)</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop">
+        <div class="product-info">
+          <div class="product-name">최신 스마트폰</div>
+          <div>
+            <span class="price">1,090,000원</span>
+            <span class="discount">10%</span>
+          </div>
+          <div class="rating">⭐ 4.7 (532)</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+        <div class="product-info">
+          <div class="product-name">오버핏 반팔 티셔츠</div>
+          <div>
+            <span class="price">19,900원</span>
+            <span class="discount">45%</span>
+          </div>
+          <div class="rating">⭐ 4.6 (2,102)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-inner">
+      <p>ⓒ 2026 SHOPPING. All rights reserved.</p>
+      <p>고객센터: 1234-5678</p>
+      <p>운영시간: 09:00 ~ 18:00</p>
+    </div>
+  </footer>
+
+</body>
+</html>
